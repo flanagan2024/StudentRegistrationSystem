@@ -1,13 +1,13 @@
 import java.time.LocalDate;
-import java.util.List;
+import java.time.temporal.ChronoUnit;
 
 /**
- * @author Matthew
+ * @author Matt
  */
 public class Student
 {
 	// student attributes
-	private String firstName, lastName, username, id;
+	private String firstName, lastName;
 	private LocalDate dateOfBirth;
 	private Course course;
 
@@ -20,80 +20,87 @@ public class Student
 		this.course = course;
 	}
 
-	@Override
-	public String toString()
-	{
-		return "Name:\t" + getFirstName() + " " + getLastName() + "\nAge:\t" + getAge()
-				+ "\nDate of Birth:\t" + getDateOfBirth() + "\nStudent ID:\t" + getId()
-				+ "\nUsername:\t" + getUsername() + "\n";
-	}
-
+	// accessor & mutator methods
 	public String getFirstName()
 	{
 		return firstName;
 	}
-
 	public void setFirstName(String firstName)
 	{
 		this.firstName = firstName;
 	}
-
 	public String getLastName()
 	{
 		return lastName;
 	}
-
 	public void setLastName(String lastName)
 	{
 		this.lastName = lastName;
 	}
-
-	/**
-	 * Creates a student username consisting of the student's first initial, surname and birth year
-	 * @return username
-	 */
-	public String getUsername()
-	{
-		String firstInitial = firstName.substring(0,1);
-		String twoDigitBirthYear = String.valueOf(dateOfBirth.getYear()).substring(2, 4);
-		username = firstInitial + lastName + twoDigitBirthYear;
-		return username.toLowerCase();
-	}
-
 	public LocalDate getDateOfBirth()
 	{
 		return dateOfBirth;
 	}
-
 	public void setDateOfBirth(LocalDate dateOfBirth)
 	{
 		this.dateOfBirth = dateOfBirth;
 	}
-
-	/**
-	 *
-	 * @return
-	 */
-	public int getAge()
-	{
-		return LocalDate.now().getYear() - dateOfBirth.getYear();
-	}
-
-	public String getId()
-	{
-		int yearStarted = this.getCourse().getStartDate().getYear();
-		String dob = String.valueOf(getDateOfBirth().getDayOfMonth()) + String.valueOf(getDateOfBirth().getMonthValue()) + String.valueOf(getDateOfBirth().getYear());
-		id = Integer.toString(yearStarted).substring(2, 4) + dob;
-		return id;
-	}
-
 	public Course getCourse()
 	{
 		return course;
 	}
-
 	public void setCourse(Course course)
 	{
 		this.course = course;
+	}
+
+	/**
+	 * Creates a student username consisting of the student's first initial, surname and birth year
+	 *
+	 * @return student's username
+	 */
+	public String getUsername()
+	{
+		String firstInitial = firstName.substring(0, 1);
+		String twoDigitBirthYear = String.valueOf(dateOfBirth.getYear()).substring(2, 4);
+		String username = firstInitial + lastName + twoDigitBirthYear;
+		return username.toLowerCase();
+	}
+
+	/**
+	 * Calculates a student's age from their date of birth
+	 *
+	 * @return student's age in years
+	 */
+	public int getAge()
+	{
+		return (int) ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now());
+	}
+
+	/**
+	 * Generates a student's ID number using the last two digits
+	 * of the year they started their course, followed by six random digits
+	 *
+	 * @return student's ID number
+	 */
+	public String generateID()
+	{
+		String id = Integer.toString(getCourse().getStartDate().getYear()).substring(2, 4);
+
+		int randomDigit;
+		for(int i = 0; i < 6; i++)
+		{
+			randomDigit = (int) (Math.random() * 10);
+			id += randomDigit;
+		}
+		return id;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Name:\t" + getFirstName() + " " + getLastName() + "\nAge:\t" + getAge()
+				+ "\nDate of Birth:\t" + getDateOfBirth() + "\nStudent ID:\t" + generateID()
+				+ "\nUsername:\t" + getUsername() + "\n";
 	}
 }
