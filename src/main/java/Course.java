@@ -1,23 +1,40 @@
 import org.joda.time.DateTime;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Course
 {
 	private String courseName, courseCode;
-	private List<Module> modules;
-	private List<Student> enrolledStudents;
+	private int courseLength;   // in years
+	private ArrayList<Module> modules;
+	private ArrayList<Student> enrolledStudents;
 	private DateTime startDate;
 	private DateTime endDate;
 
-	public Course(String courseName, String courseCode, List<Module> modules, List<Student> enrolledStudents, DateTime startDate, DateTime endDate)
+	public Course(String courseName, String courseCode, int courseLength, ArrayList<Module> modules, DateTime startDate, DateTime endDate)
 	{
 		this.courseName = courseName;
 		this.courseCode = courseCode;
+		this.courseLength = courseLength;
 		this.modules = modules;
-		this.enrolledStudents = enrolledStudents;
 		this.startDate = startDate;
 		this.endDate = endDate;
+	}
+
+	public Course(String courseName, String courseCode, int courseLength, DateTime startDate, DateTime endDate)
+	{
+		this.courseName = courseName;
+		this.courseCode = courseCode;
+		this.courseLength = courseLength;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
+
+	public String toString()
+	{
+		return "Course:\t" + getCourseName() + "\nCode:\t" + getCourseCode() + "\nStart Date:\t" + getStartDate()
+				+ "\nEnd Date:\t" + getEndDate() + "\nDuration:\t" +
+
 	}
 
 	public String getCourseName()
@@ -40,22 +57,22 @@ public class Course
 		this.courseCode = courseCode;
 	}
 
-	public List<Module> getModules()
+	public ArrayList<Module> getModules()
 	{
 		return modules;
 	}
 
-	public void setModules(List<Module> modules)
+	public void setModules(ArrayList<Module> modules)
 	{
 		this.modules = modules;
 	}
 
-	public List<Student> getEnrolledStudents()
+	public ArrayList<Student> getEnrolledStudents()
 	{
 		return enrolledStudents;
 	}
 
-	public void setEnrolledStudents(List<Student> enrolledStudents)
+	public void setEnrolledStudents(ArrayList<Student> enrolledStudents)
 	{
 		this.enrolledStudents = enrolledStudents;
 	}

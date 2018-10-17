@@ -1,18 +1,21 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Module
 {
-	private String moduleName, moduleID;
-	private List<Student> registeredStudents = new ArrayList<>();
-	private List<Course> associatedCourses = new ArrayList<>();
+	private String moduleName, moduleCode;
+	private ArrayList<Student> registeredStudents;
+	private ArrayList<Course> associatedCourses;
 
-	public Module(String moduleName, String moduleID, List<Student> registeredStudents, List<Course> associatedCourses)
+	public Module(String moduleName, String moduleCode)
 	{
 		this.moduleName = moduleName;
-		this.moduleID = moduleID;
-		this.registeredStudents = registeredStudents;
-		this.associatedCourses = associatedCourses;
+		this.moduleCode = moduleCode;
+	}
+
+	@Override
+	public String toString()
+	{
+		return getModuleCode() + ": " + getModuleName();
 	}
 
 	public String getModuleName()
@@ -25,32 +28,32 @@ public class Module
 		this.moduleName = moduleName;
 	}
 
-	public String getModuleID()
+	public String getModuleCode()
 	{
-		return moduleID;
+		return moduleCode;
 	}
 
-	public void setModuleID(String moduleID)
+	public void setModuleCode(String moduleCode)
 	{
-		this.moduleID = moduleID;
+		this.moduleCode = moduleCode;
 	}
 
-	public List<Student> getRegisteredStudents()
+	public ArrayList<Student> getRegisteredStudents()
 	{
 		return registeredStudents;
 	}
 
-	public void setRegisteredStudents(List<Student> registeredStudents)
+	public void setRegisteredStudents(ArrayList<Student> registeredStudents)
 	{
 		this.registeredStudents = registeredStudents;
 	}
 
-	public List<Course> getAssociatedCourses()
+	public ArrayList<Course> getAssociatedCourses()
 	{
 		return associatedCourses;
 	}
 
-	public void setAssociatedCourses(List<Course> associatedCourses)
+	public void setAssociatedCourses(ArrayList<Course> associatedCourses)
 	{
 		this.associatedCourses = associatedCourses;
 	}

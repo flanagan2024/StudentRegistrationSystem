@@ -1,21 +1,31 @@
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * @author Matthew
+ */
 public class Student
 {
-	private String firstName, lastName;
+	// student attributes
+	private String firstName, lastName, username, id;
 	private LocalDate dateOfBirth;
-	private int id; // both auto-generated inside getter/setters TODO
-	private List<Module> modules;
 	private Course course;
 
-	public Student(String firstName, String lastName, LocalDate dateOfBirth, List<Module> modules, Course course)
+	// student constructor
+	public Student(String firstName, String lastName, LocalDate dateOfBirth, Course course)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
-		this.modules = modules;
 		this.course = course;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Name:\t" + getFirstName() + " " + getLastName() + "\nAge:\t" + getAge()
+				+ "\nDate of Birth:\t" + getDateOfBirth() + "\nStudent ID:\t" + getId()
+				+ "\nUsername:\t" + getUsername() + "\n";
 	}
 
 	public String getFirstName()
@@ -38,6 +48,18 @@ public class Student
 		this.lastName = lastName;
 	}
 
+	/**
+	 * Creates a student username consisting of the student's first initial, surname and birth year
+	 * @return username
+	 */
+	public String getUsername()
+	{
+		String firstInitial = firstName.substring(0,1);
+		String twoDigitBirthYear = String.valueOf(dateOfBirth.getYear()).substring(2, 4);
+		username = firstInitial + lastName + twoDigitBirthYear;
+		return username.toLowerCase();
+	}
+
 	public LocalDate getDateOfBirth()
 	{
 		return dateOfBirth;
@@ -48,24 +70,21 @@ public class Student
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public int getAge()
 	{
 		return LocalDate.now().getYear() - dateOfBirth.getYear();
 	}
 
-	public int getId()
+	public String getId()
 	{
+		int yearStarted = this.getCourse().getStartDate().getYear();
+		String dob = String.valueOf(getDateOfBirth().getDayOfMonth()) + String.valueOf(getDateOfBirth().getMonthValue()) + String.valueOf(getDateOfBirth().getYear());
+		id = Integer.toString(yearStarted).substring(2, 4) + dob;
 		return id;
-	}
-
-	public List<Module> getModules()
-	{
-		return modules;
-	}
-
-	public void setModules(List<Module> modules)
-	{
-		this.modules = modules;
 	}
 
 	public Course getCourse()
