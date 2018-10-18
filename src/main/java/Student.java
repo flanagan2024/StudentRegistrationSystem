@@ -72,9 +72,11 @@ public class Student
 	 *
 	 * @return student's age in years
 	 */
-	public Years getAge()
+	public int getAge()
 	{
-		return Years.yearsBetween(dateOfBirth, LocalDate.now());
+		String age = Years.yearsBetween(dateOfBirth, LocalDate.now()).toString();
+		age = age.replaceAll("\\D+","");    // regex to remove all non-numeric characters
+		return Integer.valueOf(age);
 	}
 
 	/**
