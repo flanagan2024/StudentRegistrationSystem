@@ -8,9 +8,9 @@ public class Course
 {
 	// course attributes
 	private String courseName;
-	private ArrayList<Module> modules;
-	private ArrayList<Student> students;    // enrolled students
-	private LocalDate startDate, endDate;    // academic start & end dates
+	private ArrayList<Module> modules = new ArrayList<>();      // course modules
+	private ArrayList<Student> students = new ArrayList<>();    // enrolled students
+	private LocalDate startDate, endDate;                       // academic start & end dates
 
 	// course constructor
 	public Course(String courseName, LocalDate startDate, LocalDate endDate)
@@ -62,7 +62,7 @@ public class Course
 		this.endDate = endDate;
 	}
 
-	// add & remove methods for modules & students
+	// add & remove methods for modules
 	public void addModule(Module module)
 	{
 		modules.add(module);
@@ -70,14 +70,6 @@ public class Course
 	public void removeModule(Module module)
 	{
 		modules.remove(module);
-	}
-	public void addStudent(Student student)
-	{
-		students.add(student);
-	}
-	public void removeStudent(Student student)
-	{
-		students.remove(student);
 	}
 
 	@Override

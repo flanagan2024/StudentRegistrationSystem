@@ -80,7 +80,7 @@ public class Student
 
 	/**
 	 * Generates a student's ID number using the last two digits
-	 * of their date of birth, followed by six random digits
+	 * of their birth year, followed by six random digits
 	 *
 	 * @return student's ID number
 	 */

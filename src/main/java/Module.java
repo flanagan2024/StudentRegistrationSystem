@@ -7,8 +7,7 @@ public class Module
 {
 	// module attributes
 	private String moduleName, moduleCode;
-	private ArrayList<Student> students;    // registered students
-	private ArrayList<Course> courses;      // associated courses
+	private ArrayList<Student> students = new ArrayList<>();    // registered students
 
 	// module constructor
 	public Module(String moduleName, String moduleCode)
@@ -37,10 +36,6 @@ public class Module
 	public ArrayList<Student> getStudents()
 	{
 		return students;
-	}
-	public ArrayList<Course> getCourses()
-	{
-		return courses;
 	}
 
 	// add & remove methods for students
