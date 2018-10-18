@@ -7,12 +7,8 @@ import static org.junit.Assert.*;
  */
 public class StudentTest
 {
-	// computer science
-	LocalDate startDate = new LocalDate(2012, 9, 9);
-	LocalDate endDate = new LocalDate(2016, 5, 20);
-	Course csit = new Course("Computer Science & IT", startDate, endDate);
-	LocalDate dateOfBirth = new LocalDate(1993, 10, 18);
-	Student sut = new Student("Matt", "Flanagan", dateOfBirth, csit);
+	// test data
+	Student sut = new Student("Matt", "Flanagan", new LocalDate(1993, 10, 18));
 
 	@Test
 	public void get_username_test()

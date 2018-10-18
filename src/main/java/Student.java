@@ -12,12 +12,11 @@ public class Student
 	private Course course;
 
 	// student constructor
-	public Student(String firstName, String lastName, LocalDate dateOfBirth, Course course)
+	public Student(String firstName, String lastName, LocalDate dateOfBirth)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
-		this.course = course;
 	}
 
 	// accessor & mutator methods
