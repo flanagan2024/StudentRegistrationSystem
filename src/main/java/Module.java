@@ -43,7 +43,7 @@ public class Module
 		return courses;
 	}
 
-	// add & remove methods for students & courses
+	// add & remove methods for students
 	public void addStudent(Student student)
 	{
 		students.add(student);
@@ -51,14 +51,6 @@ public class Module
 	public void removeStudent(Student student)
 	{
 		students.remove(student);
-	}
-	public void addCourse(Course course)
-	{
-		courses.add(course);
-	}
-	public void removeCourse(Course course)
-	{
-		courses.remove(course);
 	}
 
 	@Override
