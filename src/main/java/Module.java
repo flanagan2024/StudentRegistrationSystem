@@ -1,60 +1,69 @@
 import java.util.ArrayList;
 
+/**
+ * @author Matt
+ */
 public class Module
 {
+	// module attributes
 	private String moduleName, moduleCode;
-	private ArrayList<Student> registeredStudents;
-	private ArrayList<Course> associatedCourses;
+	private ArrayList<Student> students;    // registered students
+	private ArrayList<Course> courses;      // associated courses
 
+	// module constructor
 	public Module(String moduleName, String moduleCode)
 	{
 		this.moduleName = moduleName;
 		this.moduleCode = moduleCode;
 	}
 
-	@Override
-	public String toString()
-	{
-		return getModuleCode() + ": " + getModuleName();
-	}
-
+	// accessor & mutator methods
 	public String getModuleName()
 	{
 		return moduleName;
 	}
-
 	public void setModuleName(String moduleName)
 	{
 		this.moduleName = moduleName;
 	}
-
 	public String getModuleCode()
 	{
 		return moduleCode;
 	}
-
 	public void setModuleCode(String moduleCode)
 	{
 		this.moduleCode = moduleCode;
 	}
-
-	public ArrayList<Student> getRegisteredStudents()
+	public ArrayList<Student> getStudents()
 	{
-		return registeredStudents;
+		return students;
+	}
+	public ArrayList<Course> getCourses()
+	{
+		return courses;
 	}
 
-	public void setRegisteredStudents(ArrayList<Student> registeredStudents)
+	// add & remove methods for students & courses
+	public void addStudent(Student student)
 	{
-		this.registeredStudents = registeredStudents;
+		students.add(student);
+	}
+	public void removeStudent(Student student)
+	{
+		students.remove(student);
+	}
+	public void addCourse(Course course)
+	{
+		courses.add(course);
+	}
+	public void removeCourse(Course course)
+	{
+		courses.remove(course);
 	}
 
-	public ArrayList<Course> getAssociatedCourses()
+	@Override
+	public String toString()
 	{
-		return associatedCourses;
-	}
-
-	public void setAssociatedCourses(ArrayList<Course> associatedCourses)
-	{
-		this.associatedCourses = associatedCourses;
+		return getModuleCode() + ": " + getModuleName();
 	}
 }

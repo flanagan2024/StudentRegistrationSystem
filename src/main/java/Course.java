@@ -1,99 +1,89 @@
 import org.joda.time.DateTime;
-
 import java.util.ArrayList;
 
+/**
+ * @author Matt
+ */
 public class Course
 {
-	private String courseName, courseCode;
-	private int courseLength;   // in years
+	// course attributes
+	private String courseName;
 	private ArrayList<Module> modules;
-	private ArrayList<Student> enrolledStudents;
-	private DateTime startDate;
-	private DateTime endDate;
+	private ArrayList<Student> students;    // enrolled students
+	private DateTime startDate, endDate;    // academic start & end dates
 
-	public Course(String courseName, String courseCode, int courseLength, ArrayList<Module> modules, DateTime startDate, DateTime endDate)
+	// course constructor
+	public Course(String courseName, DateTime startDate, DateTime endDate)
 	{
 		this.courseName = courseName;
-		this.courseCode = courseCode;
-		this.courseLength = courseLength;
-		this.modules = modules;
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
 
-	public Course(String courseName, String courseCode, int courseLength, DateTime startDate, DateTime endDate)
-	{
-		this.courseName = courseName;
-		this.courseCode = courseCode;
-		this.courseLength = courseLength;
-		this.startDate = startDate;
-		this.endDate = endDate;
-	}
-
-	public String toString()
-	{
-		return "Course:\t" + getCourseName() + "\nCode:\t" + getCourseCode() + "\nStart Date:\t" + getStartDate()
-				+ "\nEnd Date:\t" + getEndDate() + "\nDuration:\t" +
-
-	}
-
+	// accessor & mutator methods
 	public String getCourseName()
 	{
 		return courseName;
 	}
-
 	public void setCourseName(String courseName)
 	{
 		this.courseName = courseName;
 	}
-
-	public String getCourseCode()
-	{
-		return courseCode;
-	}
-
-	public void setCourseCode(String courseCode)
-	{
-		this.courseCode = courseCode;
-	}
-
 	public ArrayList<Module> getModules()
 	{
 		return modules;
 	}
-
 	public void setModules(ArrayList<Module> modules)
 	{
 		this.modules = modules;
 	}
-
-	public ArrayList<Student> getEnrolledStudents()
+	public ArrayList<Student> getStudents()
 	{
-		return enrolledStudents;
+		return students;
 	}
-
-	public void setEnrolledStudents(ArrayList<Student> enrolledStudents)
+	public void setStudents(ArrayList<Student> students)
 	{
-		this.enrolledStudents = enrolledStudents;
+		this.students = students;
 	}
-
 	public DateTime getStartDate()
 	{
 		return startDate;
 	}
-
 	public void setStartDate(DateTime startDate)
 	{
 		this.startDate = startDate;
 	}
-
 	public DateTime getEndDate()
 	{
 		return endDate;
 	}
-
 	public void setEndDate(DateTime endDate)
 	{
 		this.endDate = endDate;
+	}
+
+	// add & remove methods for modules & students
+	public void addModule(Module module)
+	{
+		modules.add(module);
+	}
+	public void removeModule(Module module)
+	{
+		modules.remove(module);
+	}
+	public void addStudent(Student student)
+	{
+		students.add(student);
+	}
+	public void removeStudent(Student student)
+	{
+		students.remove(student);
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Course:\t" + getCourseName() + "\nStart Date:\t" + getStartDate()
+				+ "\nEnd Date:\t" + getEndDate() + "\nModules:\t" + modules.toString();
 	}
 }
