@@ -80,13 +80,13 @@ public class Student
 
 	/**
 	 * Generates a student's ID number using the last two digits
-	 * of the year they started their course, followed by six random digits
+	 * of their date of birth, followed by six random digits
 	 *
 	 * @return student's ID number
 	 */
 	public String generateID()
 	{
-		String id = Integer.toString(getCourse().getStartDate().getYear()).substring(2, 4);
+		String id = Integer.toString(getDateOfBirth().getYear()).substring(2, 4);
 
 		int randomDigit;
 		for(int i = 0; i < 6; i++)
@@ -101,7 +101,7 @@ public class Student
 	public String toString()
 	{
 		return "Name:\t" + getFirstName() + " " + getLastName() + "\nAge:\t" + getAge()
-				+ "\nDate of Birth:\t" + getDateOfBirth() + "\nStudent ID:\t" + generateID()
-				+ "\nUsername:\t" + getUsername() + "\n";
+				+ "\nDate of Birth:\t" + getDateOfBirth() + "\nStudent ID:\t" + generateID() +
+				"\nUsername:\t" + getUsername() + "\n";
 	}
 }
