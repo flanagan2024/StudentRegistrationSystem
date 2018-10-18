@@ -76,6 +76,7 @@ public class Course
 	public String toString()
 	{
 		return "Course:\t" + getCourseName() + "\nStart Date:\t" + getStartDate()
-				+ "\nEnd Date:\t" + getEndDate() + "\nModules:\t" + modules.toString();
+				+ "\nEnd Date:\t" + getEndDate() + "\nModules:\t" + modules.toString()
+				+ "\nEnrolled Students:\t" + getStudents();
 	}
 }
