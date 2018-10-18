@@ -1,5 +1,5 @@
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import org.joda.time.LocalDate;
+import org.joda.time.Years;
 
 /**
  * @author Matt
@@ -72,9 +72,9 @@ public class Student
 	 *
 	 * @return student's age in years
 	 */
-	public int getAge()
+	public Years getAge()
 	{
-		return (int) ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now());
+		return Years.yearsBetween(dateOfBirth, LocalDate.now());
 	}
 
 	/**

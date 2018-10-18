@@ -1,4 +1,4 @@
-import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -10,10 +10,10 @@ public class Course
 	private String courseName;
 	private ArrayList<Module> modules;
 	private ArrayList<Student> students;    // enrolled students
-	private DateTime startDate, endDate;    // academic start & end dates
+	private LocalDate startDate, endDate;    // academic start & end dates
 
 	// course constructor
-	public Course(String courseName, DateTime startDate, DateTime endDate)
+	public Course(String courseName, LocalDate startDate, LocalDate endDate)
 	{
 		this.courseName = courseName;
 		this.startDate = startDate;
@@ -45,19 +45,19 @@ public class Course
 	{
 		this.students = students;
 	}
-	public DateTime getStartDate()
+	public LocalDate getStartDate()
 	{
 		return startDate;
 	}
-	public void setStartDate(DateTime startDate)
+	public void setStartDate(LocalDate startDate)
 	{
 		this.startDate = startDate;
 	}
-	public DateTime getEndDate()
+	public LocalDate getEndDate()
 	{
 		return endDate;
 	}
-	public void setEndDate(DateTime endDate)
+	public void setEndDate(LocalDate endDate)
 	{
 		this.endDate = endDate;
 	}

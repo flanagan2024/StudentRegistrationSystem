@@ -1,9 +1,5 @@
 import org.junit.Test;
-
-import java.time.LocalDate;
-
-import org.joda.time.DateTime;
-
+import org.joda.time.LocalDate;
 import static org.junit.Assert.*;
 
 /**
@@ -12,10 +8,10 @@ import static org.junit.Assert.*;
 public class StudentTest
 {
 	// computer science
-	DateTime startDate = new DateTime(2012, 9, 9, 9, 0);
-	DateTime endDate = new DateTime(2016, 5, 20, 18, 0);
-	Course csit = new Course("Computer Science & Information Technology", startDate, endDate);
-	LocalDate dateOfBirth = LocalDate.of(1993, 10, 18);
+	LocalDate startDate = new LocalDate(2012, 9, 9);
+	LocalDate endDate = new LocalDate(2016, 5, 20);
+	Course csit = new Course("Computer Science & IT", startDate, endDate);
+	LocalDate dateOfBirth = new LocalDate(1993, 10, 18);
 	Student sut = new Student("Matt", "Flanagan", dateOfBirth, csit);
 
 	@Test
