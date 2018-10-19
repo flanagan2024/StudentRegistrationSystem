@@ -3,11 +3,10 @@ language: java
 jdk:
   - oraclejdk10
 
-on_success:
+after_success:
   - mvn test
 
-integrations:
-  notifications:
-    email:
-      recipients:
-        - flanagan2024@gmail.com
+notifications:
+  email:
+    recipients:
+      - flanagan2024@gmail.com
