@@ -1,1 +1,13 @@
-"language: java\n\n" 
+language: java
+
+jdk:
+  - oraclejdk10
+
+on_success:
+  - mvn test
+
+integrations:
+  notifications:
+    email:
+      recipients:
+        - flanagan2024@gmail.com
