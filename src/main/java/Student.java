@@ -74,13 +74,13 @@ public class Student
 	public int getAge()
 	{
 		String age = Years.yearsBetween(dateOfBirth, LocalDate.now()).toString();
-		age = age.replaceAll("\\D+","");    // regex to remove all non-numeric characters
+		age = age.replaceAll("\\D+", "");    // regex to remove all non-numeric characters
 		return Integer.valueOf(age);
 	}
 
 	/**
 	 * Generates a student's ID number using the last two digits
-	 * of their birth year, followed by six random digits
+	 * of the current year, followed by six random digits
 	 *
 	 * @return student's ID number
 	 */
@@ -89,8 +89,7 @@ public class Student
 		String id = Integer.toString(getDateOfBirth().getYear()).substring(2, 4);
 
 		int randomDigit;
-		for(int i = 0; i < 6; i++)
-		{
+		for(int i = 0; i < 6; i++) {
 			randomDigit = (int) (Math.random() * 10);
 			id += randomDigit;
 		}
@@ -100,8 +99,8 @@ public class Student
 	@Override
 	public String toString()
 	{
-		return "Name:\t" + getFirstName() + " " + getLastName() + "\nAge:\t" + getAge()
-				+ "\nDate of Birth:\t" + getDateOfBirth() + "\nStudent ID:\t" + generateID() +
-				"\nUsername:\t" + getUsername() + "\n";
+		return "Name:\t\t" + getFirstName() + " " + getLastName() + "\nAge:\t\t" + getAge() + "\nBorn:\t\t"
+				+ getDateOfBirth() + "\nID:\t\t\t" + generateID() + "\nUsername:\t" + getUsername()
+				+ "\nCourse(s):\t";
 	}
 }

@@ -1,4 +1,5 @@
 import org.joda.time.LocalDate;
+
 import java.util.ArrayList;
 
 /**
@@ -75,8 +76,10 @@ public class Course
 	@Override
 	public String toString()
 	{
-		return "Course:\t" + getCourseName() + "\nStart Date:\t" + getStartDate()
-				+ "\nEnd Date:\t" + getEndDate() + "\nModules:\t" + modules.toString()
-				+ "\nEnrolled Students:\t" + getStudents();
+		String moduleStr = "";
+		for(Module module : modules)
+			moduleStr += "\t" + module.toString() + "\n";
+		return "Course Name:\t" + getCourseName() + "\nStart Date:\t\t" + getStartDate()
+				+ "\nEnd Date:\t\t" + getEndDate() + "\nModules:\n" + moduleStr;
 	}
 }

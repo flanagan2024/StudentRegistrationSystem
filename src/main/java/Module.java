@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * @author Matt
@@ -8,6 +9,7 @@ public class Module
 	// module attributes
 	private String moduleName, moduleCode;
 	private ArrayList<Student> students = new ArrayList<>();    // registered students
+	private HashSet<Course> courses = new HashSet<>();          // associated courses
 
 	// module constructor
 	public Module(String moduleName, String moduleCode)
@@ -37,8 +39,12 @@ public class Module
 	{
 		return students;
 	}
+	public HashSet<Course> getCourses()
+	{
+		return courses;
+	}
 
-	// add & remove methods for students
+	// add & remove methods for registered students & associated courses
 	public void addStudent(Student student)
 	{
 		students.add(student);
@@ -47,10 +53,16 @@ public class Module
 	{
 		students.remove(student);
 	}
+	public void addCourse(Course course) { courses.add(course); }
+	public void removeCourse(Course course)
+	{
+		courses.remove(course);
+	}
+
 
 	@Override
 	public String toString()
 	{
-		return getModuleCode() + ": " + getModuleName();
+		return "\t" + getModuleCode() + ": " + getModuleName();
 	}
 }
