@@ -1,6 +1,7 @@
 language: java
 
-version: 10.0
+jdk:
+  - oraclejdk10
 
 on_success:
   - mvn test
