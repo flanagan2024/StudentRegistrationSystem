@@ -1,1 +1,20 @@
-"language: java\n\n" 
+# language setting
+language: java
+
+# version number
+jdk:
+	- oraclejdk10
+
+build:
+	ci:
+		- java -version
+
+after_success:
+	- mvn test
+
+notifications:
+	email:
+		recipients:
+			- flanagan2024@gmail.com
+
+
