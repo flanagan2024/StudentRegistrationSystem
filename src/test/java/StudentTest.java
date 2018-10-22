@@ -8,12 +8,12 @@ import static org.junit.Assert.*;
 public class StudentTest
 {
 	// test data
-	Student sut = new Student("Matt", "Flanagan", new LocalDate(1993, 10, 18));
+	Student sut = new Student("Matt", "Flanagan", new LocalDate(1993, 9, 9));
 
 	@Test
 	public void get_username_test()
 	{
-		assertEquals("mflanagan93", sut.getUsername());
+		assertEquals("mflanagan25", sut.getUsername());
 	}
 
 	@Test

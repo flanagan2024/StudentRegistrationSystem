@@ -54,15 +54,15 @@ public class Student
 	}
 
 	/**
-	 * Creates a student username consisting of the student's first initial, surname and birth year
+	 * Creates a student username consisting of the student's first initial, surname and age
 	 *
 	 * @return student's username
 	 */
 	public String getUsername()
 	{
 		String firstInitial = firstName.substring(0, 1);
-		String twoDigitBirthYear = String.valueOf(dateOfBirth.getYear()).substring(2, 4);
-		String username = firstInitial + lastName + twoDigitBirthYear;
+		//String twoDigitBirthYear = String.valueOf(dateOfBirth.getYear()).substring(2, 4);
+		String username = firstInitial + lastName + getAge();
 		return username.toLowerCase();
 	}
 
