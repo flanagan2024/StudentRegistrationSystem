@@ -99,8 +99,7 @@ public class Student
 	@Override
 	public String toString()
 	{
-		return "Name:\t\t" + getFirstName() + " " + getLastName() + "\nAge:\t\t" + getAge() + "\nBorn:\t\t"
-				+ getDateOfBirth() + "\nID:\t\t\t" + generateID() + "\nUsername:\t" + getUsername()
-				+ "\nCourse(s):\t";
+		return "Name:\t\t" + getFirstName() + " " + getLastName() + "\nID:\t\t\t" + generateID() + "\nBorn:\t\t"
+				+ getDateOfBirth() + "\nUsername:\t" + getUsername() + "\nCourse(s):\t";
 	}
 }
